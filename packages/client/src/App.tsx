@@ -11,11 +11,7 @@ function App() {
       .catch((error) => console.error("Error:", error));
   }, []);
 
-  return (
-    <div>
-      <h1>{message}</h1>
-    </div>
-  );
+  return <p className="p-4 font-bold text-3xl">{message}</p>;
 }
 
 export default App;
