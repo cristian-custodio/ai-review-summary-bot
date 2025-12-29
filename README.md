@@ -1,4 +1,8 @@
-# ai-powered-app-mosh
+# ai-customer-service-bot
+
+This project consists of a customer support service bot used to answer questiosn about a theme park. It includes prompting instructions to scope out the answers.
+
+<img src="packages/client/public/screenshot.png" alt="Screenshot" width="500" />
 
 To install dependencies:
 
@@ -9,7 +13,6 @@ bun install
 To run:
 
 ```bash
-bun run index.ts
+bun run dev
 ```
 
-This project was created using `bun init` in bun v1.3.5. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime.
