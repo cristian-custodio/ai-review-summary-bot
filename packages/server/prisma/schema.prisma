@@ -11,6 +11,7 @@ generator client {
 
 datasource db {
   provider = "mysql"
+  url      = env("DATABASE_URL")
 }
 
 model Product {
@@ -22,6 +23,8 @@ model Product {
   updatedAt   DateTime @updatedAt
   reviews     Review[]
   summary     Summary?
+
+  @@map("products")
 }
 
 model Review {
@@ -33,6 +36,8 @@ model Review {
   updatedAt DateTime @updatedAt
   productId Int
   product   Product  @relation(fields: [productId], references: [id])
+
+  @@map("reviews")
 }
 
 model Summary {
@@ -42,4 +47,6 @@ model Summary {
   productId   Int      @unique
   product     Product  @relation(fields: [productId], references: [id])
   expiresAt   DateTime
+
+  @@map("summaries")
 }
