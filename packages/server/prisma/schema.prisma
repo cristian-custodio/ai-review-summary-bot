@@ -14,32 +14,32 @@ datasource db {
 }
 
 model Product {
-  id Int @id @default(autoincrement())
-  name String
+  id          Int      @id @default(autoincrement())
+  name        String
   description String?
-  price Float
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  reviews Review[]
-  summary Summary?
+  price       Float
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  reviews     Review[]
+  summary     Summary?
 }
 
 model Review {
-  id Int @id @default(autoincrement())
-  author String
-  rating Int
-  content String?
+  id        Int      @id @default(autoincrement())
+  author    String
+  rating    Int
+  content   String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   productId Int
-  product Product @relation(fields: [productId], references: [id])
+  product   Product  @relation(fields: [productId], references: [id])
 }
 
 model Summary {
-  id Int @id @default(autoincrement())
-  content String
+  id          Int      @id @default(autoincrement())
+  content     String
   generatedAt DateTime @default(now())
-  productId Int @unique
-  product Product @relation(fields: [productId], references: [id])
-  expiresAt DateTime
+  productId   Int      @unique
+  product     Product  @relation(fields: [productId], references: [id])
+  expiresAt   DateTime
 }
