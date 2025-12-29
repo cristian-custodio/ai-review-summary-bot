@@ -24,7 +24,7 @@ const ChatMessages = ({ messages }: Props) => {
    useEffect(() => {
       lastMessageRef.current?.scrollIntoView({ behavior: 'smooth' });
    }, [messages]);
-
+   // className={`px-3 py-1 max-w-md rounded-3xl
    return (
       <div className="flex flex-col gap-3">
          {messages.map((message, index) => (
@@ -33,6 +33,7 @@ const ChatMessages = ({ messages }: Props) => {
                onCopy={onCopyMessage}
                ref={index === messages.length - 1 ? lastMessageRef : null}
                className={`px-3 py-1 rounded-3xl
+               
              ${message.role === 'user' ? 'bg-blue-600 text-white self-end' : 'bg-gray-100 text-black self-start'}`}
             >
                <ReactMarkdown>{message.content}</ReactMarkdown>
